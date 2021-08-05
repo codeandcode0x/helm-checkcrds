@@ -314,13 +314,20 @@ main() {
 CRD=
 CRD_NAME=
 LABEL="-l"
+TYPE="-c"
 
 while [[ $# -ne 0 ]]; do
   case "$1" in
     -c|--crd) 
         CRD=$2
         ;;
-    -n|--name) CRD_NAME=$2  ;;
+    -n|--name)
+        TYPE="-n"
+        CRD_NAME=$2  
+        if [[ $4 = "pod" ]]; then
+            CRD_NAME=$LABEL$2
+        fi 
+        ;;
     -*)          usage "Unrecognized command line argument $1" ;;
     *)           break;
   esac
@@ -331,10 +338,8 @@ while [[ $# -ne 0 ]]; do
         ;;
     -n|--name) 
         CRD_NAME=$4
-        echo "ok0"
         if [[ $2 = "pod" ]]; then
             CRD_NAME=$LABEL$4
-            echo $CRD_NAME
         fi 
         ;;
     -*)          usage "Unrecognized command line argument $3" ;;
@@ -345,4 +350,4 @@ while [[ $# -ne 0 ]]; do
 done
 
 # main "$@"
-main $CRD $CRD_NAME
+main $CRD $CRD_NAME 

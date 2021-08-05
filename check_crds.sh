@@ -14,8 +14,8 @@ Checkcrd in Helm to check k8s crd whether it's working.
 Usage:
   helm checkcrd [OPTIONS]
 Options:
-  -c  --crd      crd type (pod,configmap,crd,pv,pvc,secret)
-  -n, --name     crd name
+  -c, --crd      k8s crd type ( support: pod,configmap,crd,pv,pvc,secret )
+  -n, --name     k8s crd name
 EOF
 exit
 }
@@ -313,18 +313,30 @@ main() {
 
 CRD=
 CRD_NAME=
+LABEL="-l"
 
 while [[ $# -ne 0 ]]; do
   case "$1" in
-    -c|--crd) CRD=$2  ;;
+    -c|--crd) 
+        CRD=$2
+        ;;
     -n|--name) CRD_NAME=$2  ;;
     -*)          usage "Unrecognized command line argument $1" ;;
     *)           break;
   esac
 
   case "$3" in
-    -c|--crd) CRD=$4  ;;
-    -n|--name) CRD_NAME=$4  ;;
+    -c|--crd) 
+        CRD=$4
+        ;;
+    -n|--name) 
+        CRD_NAME=$4
+        echo "ok0"
+        if [[ $2 = "pod" ]]; then
+            CRD_NAME=$LABEL$4
+            echo $CRD_NAME
+        fi 
+        ;;
     -*)          usage "Unrecognized command line argument $3" ;;
     *)           break;
   esac

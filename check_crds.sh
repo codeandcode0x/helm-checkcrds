@@ -17,7 +17,7 @@ Options:
   -c  --crd      crd type (pod,configmap,crd,pv,pvc,secret)
   -n, --name     crd name
 EOF
-exit 1
+exit
 }
 
 # Job or set of pods is considered ready if all of the are ready

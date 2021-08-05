@@ -14,8 +14,8 @@ Checkcrd in Helm to check k8s crd whether it's working.
 Usage:
   helm checkcrd [OPTIONS]
 Options:
-  -c, --crd      k8s crd type ( support: pod,configmap,crd,pv,pvc,secret )
-  -n, --name     k8s crd name
+  --crd      k8s crd type ( support: pod,configmap,crd,pv,pvc,secret )
+  --name     k8s crd name
 EOF
 exit
 }

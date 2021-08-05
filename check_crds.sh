@@ -10,7 +10,7 @@ TREAT_ERRORS_AS_READY=0
 
 usage() {
 cat <<EOF
-Checkcrd in Helm to check k8s crd whether it's working.
+Checkcrd in Helm to check k8s crd whether if it's working.
 Usage:
   helm checkcrd [OPTIONS]
 Options:

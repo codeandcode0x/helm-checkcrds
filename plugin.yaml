@@ -1,0 +1,9 @@
+name: "checkcrd"
+version: "1.0.1"
+usage: "Checkcrd in Helm to check k8s crd whether it's working "
+description: |-
+   Checkcrd in Helm to check k8s crd whether it's working
+command: "$HELM_PLUGIN_DIR/check_crds.sh"
+useTunnel: true
+hooks:
+  install: "$HELM_PLUGIN_DIR/check_crds.sh"

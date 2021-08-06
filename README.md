@@ -27,6 +27,9 @@ Options:
 
 ```
 
+**when crd is pod, the name is k,v , eq label selector**
+
+
 ## Example
 - cli
 ```sh
@@ -36,7 +39,8 @@ Options:
 ...
 ```
 
-- shell script
+- shell script <br>
+
 infra.sh
 ```sh
 #!/usr/bin/env sh
